@@ -60,6 +60,7 @@
     <Compile Include="ConnectSQL\TaiLieuSQL.cs" />
     <Compile Include="ConnectSQL\TheLoaiSQL.cs" />
     <Compile Include="ConnectSQL\ThongKe_DocGiaSQL.cs" />
+    <Compile Include="ConnectSQL\ThongKe_SachSQL.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\CTMuon_Tra.cs" />
     <Compile Include="Model\DocGia.cs" />
