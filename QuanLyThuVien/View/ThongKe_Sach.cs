@@ -13,6 +13,7 @@ namespace QuanLyThuVien.View
 {
     public partial class ThongKe_Sach : Form
     {
+        
         public ThongKe_Sach()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace QuanLyThuVien.View
 
         private void ThongKe_Sach_Load(object sender, EventArgs e)
         {
+
         }
 
         private void btnExportToPDF_Click(object sender, EventArgs e)

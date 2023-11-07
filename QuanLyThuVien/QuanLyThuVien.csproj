@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,7 @@
     <Compile Include="ConnectSQL\TacGiaSQL.cs" />
     <Compile Include="ConnectSQL\TaiLieuSQL.cs" />
     <Compile Include="ConnectSQL\TheLoaiSQL.cs" />
+    <Compile Include="ConnectSQL\ThongKe_DocGiaSQL.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\CTMuon_Tra.cs" />
     <Compile Include="Model\DocGia.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Model\TacGia.cs" />
     <Compile Include="Model\TaiLieu.cs" />
     <Compile Include="Model\TheLoai.cs" />
+    <Compile Include="Model\ToTalPhieuMuon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CTMuon_Tra.cs">
