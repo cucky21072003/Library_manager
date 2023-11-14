@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyThuVien.ConnectSQL
 {
@@ -20,10 +21,12 @@ namespace QuanLyThuVien.ConnectSQL
             string query = $"SELECT TaiLieu.Id,TaiLieu.TenTaiLieu, TaiLieu.SoLuong - COALESCE(SUM(CTMuon_Tra.SoLuong), 0) AS TaiLieu_ConLai" +
                 $"FROM TaiLieu " +
                 $"LEFT JOIN CTMuon_Tra ON  TaiLieu.Id = CTMuon_Tra.Id" +
-                $"GROUP BY TaiLieu.Id, TaiLieu.TenTaiLieu, TaiLieu.SoLuong";
+                $"GROUP BY TaiLieu.Id = , TaiLieu.TenTaiLieu = , TaiLieu.SoLuong ";
 
             DataTable retult = Connect.Instance.ExecuteOuery(query);
             return retult;
         }
+
+        
     }
 }

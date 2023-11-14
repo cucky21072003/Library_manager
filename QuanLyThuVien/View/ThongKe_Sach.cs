@@ -21,6 +21,20 @@ namespace QuanLyThuVien.View
             InitializeComponent();
            
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+        private void getData()
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.DataSource = ToTalSach.Instance.TotalSach();
             
+        }
+        private void ThongKe_Sach_Load(object sender, EventArgs e)
+        {
+            getData();
+        }
     }
 }
