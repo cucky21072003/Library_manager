@@ -17,10 +17,10 @@ namespace QuanLyThuVien.ConnectSQL
             private set => instance = value;
         }
 
-        public bool InsertA(string Note, string ngaymuon, string ngayhentra, string ngatra, int phieumuonId, int tailieuId, int quydinhId)
+        public bool InsertA(string Note, string ngaymuon, string ngayhentra, string ngatra, int phieumuonId, int tailieuId, int quydinhId, int SoLuong)
         {
-            string query = $"insert into CTMuon_Tra (Note,NgayMuon,NgayHenTra,NgayTra,PhieuMuonId,TaiLieuId,QuyDinhId) " +
-                $"values ('{Note}','{ngaymuon}','{ngayhentra}','{ngatra}',{phieumuonId},{tailieuId},{quydinhId})";
+            string query = $"insert into CTMuon_Tra (Note,NgayMuon,NgayHenTra,NgayTra,PhieuMuonId,TaiLieuId,QuyDinhId,SoLuong) " +
+                $"values ('{Note}','{ngaymuon}','{ngayhentra}','{ngatra}',{phieumuonId},{tailieuId},{quydinhId},{SoLuong})";
             return Connect.Instance.ExecuteNonOuery(query);
         }
         public bool DeleteA(string Id)
@@ -28,9 +28,9 @@ namespace QuanLyThuVien.ConnectSQL
             string query = $"DELETE FROM CTMuon_Tra WHERE Id='{Id}'";
             return Connect.Instance.ExecuteNonOuery(query);
         }
-        public bool UpdateA(string Id, string note, string ngaymuon, string ngayhentra, string ngaytra, int phieumuonId, int tailieuId, int quydinhId)
+        public bool UpdateA(string Id, string note, string ngaymuon, string ngayhentra, string ngaytra, int phieumuonId, int tailieuId, int quydinhId, int SoLuong)
         {
-            string query = $"UPDATE CTMuon_Tra SET Note=N'{note}', NgayMuon='{ngaymuon}', NgayHenTra='{ngayhentra}', NgayTra='{ngaytra}', PhieuMuonId='{phieumuonId}',TaiLieuId='{tailieuId}',QuyDinhId='{quydinhId}' WHERE Id='{Id}'";
+            string query = $"UPDATE CTMuon_Tra SET Note=N'{note}', NgayMuon='{ngaymuon}', NgayHenTra='{ngayhentra}', NgayTra='{ngaytra}', PhieuMuonId='{phieumuonId}',TaiLieuId='{tailieuId}',QuyDinhId='{quydinhId}',SoLuong='{SoLuong}' WHERE Id='{Id}'";
             return Connect.Instance.ExecuteNonOuery(query);
         }
         public DataTable GetAllS()

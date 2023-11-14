@@ -283,9 +283,9 @@
             this.txtNamXB.AutoSize = true;
             this.txtNamXB.Location = new System.Drawing.Point(19, 125);
             this.txtNamXB.Name = "txtNamXB";
-            this.txtNamXB.Size = new System.Drawing.Size(89, 16);
+            this.txtNamXB.Size = new System.Drawing.Size(69, 16);
             this.txtNamXB.TabIndex = 6;
-            this.txtNamXB.Text = "Năm xuất bản";
+            this.txtNamXB.Text = "Năm nhập";
             // 
             // label2
             // 

@@ -41,6 +41,7 @@
             this.btnCTMuon_Tra = new System.Windows.Forms.Button();
             this.btnQuyDinh = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnDocGIa = new System.Windows.Forms.Button();
             this.btnQLTL = new System.Windows.Forms.Button();
             this.btnQLMT = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@
             this.panelChildHome.Controls.Add(this.pictureBox2);
             this.panelChildHome.Location = new System.Drawing.Point(285, 3);
             this.panelChildHome.Name = "panelChildHome";
-            this.panelChildHome.Size = new System.Drawing.Size(1020, 742);
+            this.panelChildHome.Size = new System.Drawing.Size(1020, 797);
             this.panelChildHome.TabIndex = 6;
             this.panelChildHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildHome_Paint);
             // 
@@ -73,7 +74,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(3, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1017, 736);
+            this.pictureBox2.Size = new System.Drawing.Size(1027, 791);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -85,7 +86,7 @@
             this.pnlMenuQLTaiLieu.Controls.Add(this.btnTacGia);
             this.pnlMenuQLTaiLieu.Controls.Add(this.btnTheLoai);
             this.pnlMenuQLTaiLieu.Controls.Add(this.btnNhaXuatBan);
-            this.pnlMenuQLTaiLieu.Location = new System.Drawing.Point(3, 138);
+            this.pnlMenuQLTaiLieu.Location = new System.Drawing.Point(3, 204);
             this.pnlMenuQLTaiLieu.Name = "pnlMenuQLTaiLieu";
             this.pnlMenuQLTaiLieu.Size = new System.Drawing.Size(262, 124);
             this.pnlMenuQLTaiLieu.TabIndex = 5;
@@ -140,7 +141,7 @@
             this.pnlMenuQLMuonTra.Controls.Add(this.btnPhieuMuon);
             this.pnlMenuQLMuonTra.Controls.Add(this.btnCTMuon_Tra);
             this.pnlMenuQLMuonTra.Controls.Add(this.btnQuyDinh);
-            this.pnlMenuQLMuonTra.Location = new System.Drawing.Point(3, 334);
+            this.pnlMenuQLMuonTra.Location = new System.Drawing.Point(3, 400);
             this.pnlMenuQLMuonTra.Name = "pnlMenuQLMuonTra";
             this.pnlMenuQLMuonTra.Size = new System.Drawing.Size(262, 90);
             this.pnlMenuQLMuonTra.TabIndex = 6;
@@ -181,6 +182,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.btnNhanVien);
             this.flowLayoutPanel1.Controls.Add(this.btnDocGIa);
             this.flowLayoutPanel1.Controls.Add(this.btnQLTL);
             this.flowLayoutPanel1.Controls.Add(this.pnlMenuQLTaiLieu);
@@ -191,15 +193,27 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSignOut);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 105);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(270, 641);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(270, 695);
             this.flowLayoutPanel1.TabIndex = 5;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnNhanVien.Location = new System.Drawing.Point(3, 3);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(262, 60);
+            this.btnNhanVien.TabIndex = 8;
+            this.btnNhanVien.Text = "Quản lý nhân viên";
+            this.btnNhanVien.UseVisualStyleBackColor = true;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnDocGIa
             // 
             this.btnDocGIa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDocGIa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnDocGIa.Location = new System.Drawing.Point(3, 3);
+            this.btnDocGIa.Location = new System.Drawing.Point(3, 69);
             this.btnDocGIa.Name = "btnDocGIa";
             this.btnDocGIa.Size = new System.Drawing.Size(262, 60);
             this.btnDocGIa.TabIndex = 4;
@@ -212,7 +226,7 @@
             this.btnQLTL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnQLTL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLTL.Location = new System.Drawing.Point(3, 69);
+            this.btnQLTL.Location = new System.Drawing.Point(3, 135);
             this.btnQLTL.Name = "btnQLTL";
             this.btnQLTL.Size = new System.Drawing.Size(262, 63);
             this.btnQLTL.TabIndex = 0;
@@ -224,7 +238,7 @@
             // 
             this.btnQLMT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnQLMT.Location = new System.Drawing.Point(3, 268);
+            this.btnQLMT.Location = new System.Drawing.Point(3, 334);
             this.btnQLMT.Name = "btnQLMT";
             this.btnQLMT.Size = new System.Drawing.Size(262, 60);
             this.btnQLMT.TabIndex = 2;
@@ -236,7 +250,7 @@
             // 
             this.btnBaoCao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnBaoCao.Location = new System.Drawing.Point(3, 430);
+            this.btnBaoCao.Location = new System.Drawing.Point(3, 496);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(262, 60);
             this.btnBaoCao.TabIndex = 3;
@@ -248,7 +262,7 @@
             // 
             this.pnlMenuThongKe.Controls.Add(this.btnThongKeSach);
             this.pnlMenuThongKe.Controls.Add(this.btnThongKeDocGia);
-            this.pnlMenuThongKe.Location = new System.Drawing.Point(3, 496);
+            this.pnlMenuThongKe.Location = new System.Drawing.Point(3, 562);
             this.pnlMenuThongKe.Name = "pnlMenuThongKe";
             this.pnlMenuThongKe.Size = new System.Drawing.Size(258, 60);
             this.pnlMenuThongKe.TabIndex = 7;
@@ -281,7 +295,7 @@
             this.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSignOut.Location = new System.Drawing.Point(3, 562);
+            this.btnSignOut.Location = new System.Drawing.Point(3, 628);
             this.btnSignOut.Name = "btnSignOut";
             this.btnSignOut.Size = new System.Drawing.Size(262, 60);
             this.btnSignOut.TabIndex = 7;
@@ -304,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1327, 745);
+            this.ClientSize = new System.Drawing.Size(1327, 804);
             this.Controls.Add(this.panelChildHome);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
@@ -344,5 +358,6 @@
         private System.Windows.Forms.Button btnThongKeDocGia;
         private System.Windows.Forms.Button btnSignOut;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnNhanVien;
     }
 }

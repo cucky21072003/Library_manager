@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Azure;
 using QuanLyThuVien.ConnectSQL;
 
 namespace QuanLyThuVien.View
@@ -22,6 +23,7 @@ namespace QuanLyThuVien.View
         {
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.DataSource = NhanVienSQL.Instance.GetAllS();
+            txtId.Text = "";
             txtTenNV.Text = "";
             txtDiaChi.Text = "";
             txtSDT.Text = "";
@@ -98,6 +100,18 @@ namespace QuanLyThuVien.View
                 cmbGioiTinh.SelectedItem = selectedRow.Cells[4].Value;
                 txtSDT.Text = selectedRow.Cells[5].Value.ToString();
             }
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            Account frm = new Account();
+            frm.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNhanVien.DataSource = NhanVienSQL.Instance.SearchS(txtSearch.Text);
         }
     }
 }

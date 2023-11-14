@@ -53,6 +53,7 @@
             this.pcNhanVien = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnAccount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcNhanVien)).BeginInit();
@@ -76,6 +77,7 @@
             this.btnSearch.TabIndex = 53;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label1
             // 
@@ -290,11 +292,23 @@
             this.label8.TabIndex = 51;
             this.label8.Text = "Nhân viên";
             // 
+            // btnAccount
+            // 
+            this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnAccount.Location = new System.Drawing.Point(827, 29);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(105, 56);
+            this.btnAccount.TabIndex = 62;
+            this.btnAccount.Text = "Account";
+            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 581);
+            this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
@@ -346,5 +360,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAccount;
     }
 }

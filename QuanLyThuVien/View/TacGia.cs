@@ -28,6 +28,7 @@ namespace QuanLyThuVien.View
         {
             dgvTG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTG.DataSource = TacGiaSQL.Instance.GetAllStaff();
+            txtId.Text = "";
             txtTenTG.Text = "";
         }
 

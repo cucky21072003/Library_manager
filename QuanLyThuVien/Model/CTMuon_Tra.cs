@@ -20,7 +20,7 @@ namespace QuanLyThuVien.Model
         public int TaiLieuId { get; set; }
 
         public int QuyDinhId { get; set; }
-
+        public int SoLuong { get; set; }
         public CTMuon_Tra()
         {
 
@@ -36,6 +36,7 @@ namespace QuanLyThuVien.Model
             this.PhieuMuonId = (int)row["PhieuMuonId"];
             this.TaiLieuId = (int)row["TaiLieuId"];
             this.QuyDinhId = (int)row["QuyDinhId"];
+            this.Id = (int)row["SoLuong"];
         }
     }
 }

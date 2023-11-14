@@ -165,5 +165,10 @@ namespace QuanLyThuVien.View
         {
 
         }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            openChildForm(new NhanVien());
+        }
     }
 }

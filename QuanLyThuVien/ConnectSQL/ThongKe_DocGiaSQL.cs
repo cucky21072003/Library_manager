@@ -19,7 +19,7 @@ namespace QuanLyThuVien.ConnectSQL
 
         public DataTable TotalPhieuMuon(string month, string year)
         {
-            string query = $"select  count (*) as tongphieu from CTMuon_Tra Where YEAR(NgayMuon) = 2000 and MONTH(NgayMuon) = 1";
+            string query = $"select  count (*) as tongphieu from CTMuon_Tra Where YEAR(NgayMuon) = {year} and MONTH(NgayMuon) = {month}";
             DataTable retult = Connect.Instance.ExecuteOuery(query);
             return retult;
         }

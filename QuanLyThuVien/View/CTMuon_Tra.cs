@@ -24,7 +24,7 @@ namespace QuanLyThuVien.View
         {
             dgvCTMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCTMuonTra.DataSource = CTMuon_TraSQL.Instance.GetAllS();
-        }
+            txtSoLuong.Text = "";        }
         public void getCombobox()
         {
             cmbMaPhieu.DisplayMember = "Id";
@@ -58,6 +58,7 @@ namespace QuanLyThuVien.View
                 cmbMaPhieu.SelectedValue = selectedRow.Cells[5].Value;
                 cmbMaTaiLieu.SelectedValue = selectedRow.Cells[6].Value;
                 cmbQuyDinh.SelectedValue = selectedRow.Cells[7].Value;
+                txtSoLuong.Text = selectedRow.Cells[8].Value.ToString();
             }
         }
 
@@ -68,7 +69,8 @@ namespace QuanLyThuVien.View
             string dateTra = DateTimeNgayTra.Value.ToString("yyyy-MM-dd");
             if (CTMuon_TraSQL.Instance.InsertA(cmbNote.SelectedItem.ToString(), 
                 dateMuon,dateHentra,dateTra,
-                (int)cmbMaPhieu.SelectedValue, (int)cmbMaTaiLieu.SelectedValue,(int)cmbQuyDinh.SelectedValue
+                (int)cmbMaPhieu.SelectedValue, (int)cmbMaTaiLieu.SelectedValue,(int)cmbQuyDinh.SelectedValue,
+                Convert.ToInt32(txtSoLuong.Text)
                 ))
             {
                 MessageBox.Show($"Thêm thành công!");
@@ -87,7 +89,8 @@ namespace QuanLyThuVien.View
             string dateTra = DateTimeNgayTra.Value.ToString("yyyy-MM-dd");
             if (CTMuon_TraSQL.Instance.UpdateA(txtId.Text,cmbNote.SelectedItem.ToString(),
                 dateMuon, dateHentra, dateTra,
-                (int)cmbMaPhieu.SelectedValue, (int)cmbMaTaiLieu.SelectedValue, (int)cmbQuyDinh.SelectedValue
+                (int)cmbMaPhieu.SelectedValue, (int)cmbMaTaiLieu.SelectedValue, (int)cmbQuyDinh.SelectedValue,
+                Convert.ToInt32(txtSoLuong.Text)
                 ))
             {
                 MessageBox.Show($"Sửa thành công!");
