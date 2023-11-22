@@ -45,5 +45,7 @@ namespace QuanLyThuVien.ConnectSQL
             DataTable retult = Connect.Instance.ExecuteOuery(query);
             return retult;
         }
+
+        
     }
 }

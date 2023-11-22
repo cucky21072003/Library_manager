@@ -18,15 +18,15 @@ namespace QuanLyThuVien.ConnectSQL
         }
         public DataTable TotalSach()
         {
-            string query = $"SELECT TaiLieu.Id,TaiLieu.TenTaiLieu, TaiLieu.SoLuong - COALESCE(SUM(CTMuon_Tra.SoLuong), 0) AS TaiLieu_ConLai" +
+            string query = $"SELECT TaiLieu.Id, TaiLieu.TenTaiLieu, TaiLieu.SoLuong - COALESCE(SUM(CTMuon_Tra.SoLuong), 0) AS TaiLieu_ConLai " +
                 $"FROM TaiLieu " +
-                $"LEFT JOIN CTMuon_Tra ON  TaiLieu.Id = CTMuon_Tra.Id" +
-                $"GROUP BY TaiLieu.Id = , TaiLieu.TenTaiLieu = , TaiLieu.SoLuong ";
+                $"LEFT JOIN CTMuon_Tra ON TaiLieu.Id = CTMuon_Tra.Id " +
+                $"GROUP BY TaiLieu.Id, TaiLieu.TenTaiLieu, TaiLieu.SoLuong ";
 
             DataTable retult = Connect.Instance.ExecuteOuery(query);
             return retult;
         }
 
-        
+
     }
 }

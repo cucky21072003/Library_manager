@@ -24,7 +24,7 @@ namespace QuanLyThuVien.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+        
         }
         private void getData()
         {
@@ -35,6 +35,15 @@ namespace QuanLyThuVien.View
         private void ThongKe_Sach_Load(object sender, EventArgs e)
         {
             getData();
+            DataTable dataTable = ToTalSach.Instance.TotalSach();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                foreach (var item in row.ItemArray)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
