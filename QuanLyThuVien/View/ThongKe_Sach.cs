@@ -45,5 +45,20 @@ namespace QuanLyThuVien.View
                 Console.WriteLine();
             }
         }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(ToTalSach.Instance.TotalSach());
+            dv.RowFilter = $"TenTaiLieu LIKE '%{txtTimKiem.Text}%'";
+
+            // Gán DataView đã lọc cho DataGridView
+            dataGridView1.DataSource = dv;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            getData();
+            txtTimKiem.Text = "";
+        }
     }
 }

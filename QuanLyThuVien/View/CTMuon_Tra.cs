@@ -125,5 +125,11 @@ namespace QuanLyThuVien.View
         {
             this.Close();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvCTMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCTMuonTra.DataSource = CTMuon_TraSQL.Instance.SearchS(txtSearch.Text);
+        }
     }
 }

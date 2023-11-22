@@ -26,6 +26,12 @@ namespace QuanLyThuVien.ConnectSQL
             DataTable retult = Connect.Instance.ExecuteOuery(query);
             return retult;
         }
+        public DataTable Search(string name)
+        {
+            string query = $"SELECT * FROM TaiLieu WHERE TenTaiLieu LIKE N'{name}'";
+            DataTable retult = Connect.Instance.ExecuteOuery(query);
+            return retult;
+        }
 
 
     }
