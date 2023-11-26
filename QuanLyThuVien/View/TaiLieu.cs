@@ -67,7 +67,8 @@ namespace QuanLyThuVien.View
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (TaiLieuSQL.Instance.UpdateA(txtId.Text, txtTenTaiLieu.Text, txtNamXuatBan.Text, txtSoLuong.Text, txtTinhTrang.Text,
+            if (TaiLieuSQL.Instance.UpdateA(txtId.Text, txtTenTaiLieu.Text, txtNamXuatBan.Text,
+                txtSoLuong.Text, txtTinhTrang.Text,
                 (int)cmbTG.SelectedValue, (int)cmbTL.SelectedValue,
                 (int)cmbNXB.SelectedValue))
             {

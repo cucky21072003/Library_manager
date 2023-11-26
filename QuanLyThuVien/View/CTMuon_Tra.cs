@@ -104,7 +104,7 @@ namespace QuanLyThuVien.View
 
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            if (TaiLieuSQL.Instance.DeleteA(txtId.Text))
+            if (CTMuon_TraSQL.Instance.DeleteA(txtId.Text))
             {
                 MessageBox.Show($"Xóa thành công!!");
                 getData();
