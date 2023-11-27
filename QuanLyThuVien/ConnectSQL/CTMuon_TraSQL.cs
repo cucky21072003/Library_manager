@@ -19,6 +19,10 @@ namespace QuanLyThuVien.ConnectSQL
 
         public bool InsertA(string Note, string ngaymuon, string ngayhentra, string ngatra, int phieumuonId, int tailieuId, int quydinhId, int SoLuong)
         {
+            if (SoLuong < 0)
+            {
+                return false;
+            }
             string query = $"insert into CTMuon_Tra (Note,NgayMuon,NgayHenTra,NgayTra,PhieuMuonId,TaiLieuId,QuyDinhId,SoLuong) " +
                 $"values ('{Note}','{ngaymuon}','{ngayhentra}','{ngatra}',{phieumuonId},{tailieuId},{quydinhId},{SoLuong})";
             return Connect.Instance.ExecuteNonOuery(query);
@@ -30,6 +34,10 @@ namespace QuanLyThuVien.ConnectSQL
         }
         public bool UpdateA(string Id, string note, string ngaymuon, string ngayhentra, string ngaytra, int phieumuonId, int tailieuId, int quydinhId, int SoLuong)
         {
+            if (SoLuong < 0)
+            {
+                return false;
+            }
             string query = $"UPDATE CTMuon_Tra SET Note=N'{note}', NgayMuon='{ngaymuon}', NgayHenTra='{ngayhentra}', NgayTra='{ngaytra}', PhieuMuonId='{phieumuonId}',TaiLieuId='{tailieuId}',QuyDinhId='{quydinhId}',SoLuong='{SoLuong}' WHERE Id='{Id}'";
             return Connect.Instance.ExecuteNonOuery(query);
         }

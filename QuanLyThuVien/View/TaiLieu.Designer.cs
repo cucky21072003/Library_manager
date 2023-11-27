@@ -126,6 +126,7 @@
             this.txtNamXuatBan.Name = "txtNamXuatBan";
             this.txtNamXuatBan.Size = new System.Drawing.Size(260, 22);
             this.txtNamXuatBan.TabIndex = 16;
+            this.txtNamXuatBan.TextChanged += new System.EventHandler(this.txtNamXuatBan_TextChanged);
             // 
             // txtSoLuong
             // 
@@ -133,6 +134,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(239, 22);
             this.txtSoLuong.TabIndex = 13;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // txtTinhTrang
             // 

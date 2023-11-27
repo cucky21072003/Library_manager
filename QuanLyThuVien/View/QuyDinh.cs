@@ -88,7 +88,26 @@ namespace QuanLyThuVien.View
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvQuyDinh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvQuyDinh.DataSource = DocGiaSQL.Instance.SearchS(txtTimKiem.Text);
+            DataTable result = QuyDinhSQL.Instance.SearchS(txtTimKiem.Text);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvQuyDinh.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dgvQuyDinh.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                dgvQuyDinh.DataSource = emptyTable;
+            }
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

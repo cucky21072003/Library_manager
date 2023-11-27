@@ -13,7 +13,7 @@ namespace QuanLyThuVien.Model
         public string TenTaiLieu { get; set; }
         public string NamXuatBan { get; set; }
 
-        public string SoLuong { get; set; }
+        public int SoLuong { get; set; }
         public string TinhTrang { get; set; }
         public int TacGiaID { get; set; }
         public int TheLoaiID { get; set; }
@@ -27,7 +27,7 @@ namespace QuanLyThuVien.Model
             this.Id = row["Id"].ToString();
             this.TenTaiLieu = row["TenTaiLieu"].ToString();
             this.NamXuatBan = row["NamXuatBan"].ToString();
-            this.SoLuong = row["SoLuong"].ToString();
+            this.SoLuong = (int)row["SoLuong"];
             this.TinhTrang = row["TinhTrang"].ToString();
             this.TacGiaID = (int)row["TacGiaID"];
             this.TheLoaiID = (int)row["TheLoaiID"];

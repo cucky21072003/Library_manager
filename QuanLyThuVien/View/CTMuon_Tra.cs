@@ -129,7 +129,49 @@ namespace QuanLyThuVien.View
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvCTMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCTMuonTra.DataSource = CTMuon_TraSQL.Instance.SearchS(txtSearch.Text);
+            DataTable result = CTMuon_TraSQL.Instance.SearchS(txtSearch.Text);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvCTMuonTra.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dgvCTMuonTra.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                dgvCTMuonTra.DataSource = emptyTable;
+            }
+
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int soLuong = Convert.ToInt32(txtSoLuong.Text);
+
+                if (soLuong < 0)
+                {
+                    MessageBox.Show("Nhập lại");
+                }
+                else
+                {
+                    MessageBox.Show("Trường này không được để trống");
+                }
+            }
+            catch (FormatException)
+            {
+                // Handle the case where the input is not a valid integer
+                MessageBox.Show("Vui lòng nhập một số nguyên hợp lệ");
+                txtSoLuong.Text = ""; // Optionally clear the TextBox or provide default value
+            }
         }
     }
 }

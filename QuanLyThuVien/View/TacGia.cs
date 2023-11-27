@@ -42,7 +42,26 @@ namespace QuanLyThuVien.View
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvTG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvTG.DataSource = TacGiaSQL.Instance.searchStaff(txtSearch.Text);
+            DataTable result = TacGiaSQL.Instance.searchStaff(txtSearch.Text);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvTG.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dgvTG.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                dgvTG.DataSource = emptyTable;
+            }
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)

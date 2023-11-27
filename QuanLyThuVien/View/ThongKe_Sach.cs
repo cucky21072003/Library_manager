@@ -51,8 +51,27 @@ namespace QuanLyThuVien.View
             DataView dv = new DataView(ToTalSach.Instance.TotalSach());
             dv.RowFilter = $"TenTaiLieu LIKE '%{txtTimKiem.Text}%'";
 
-            // Gán DataView đã lọc cho DataGridView
-            dataGridView1.DataSource = dv;
+            if (dv.Count > 0)
+            {
+                dataGridView1.DataSource = dv;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Tạo DataTable mới với cấu trúc giống với DataGridView
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                // Thêm một dòng trắng vào DataTable
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                // Hiển thị DataTable trắng trên DataGridView
+                dataGridView1.DataSource = emptyTable;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

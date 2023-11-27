@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyThuVien.ConnectSQL;
-using QuanLyThuVien.Model;
 
 namespace QuanLyThuVien.View
 {
@@ -53,7 +52,7 @@ namespace QuanLyThuVien.View
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (TaiLieuSQL.Instance.InsertA(txtTenTaiLieu.Text, txtNamXuatBan.Text, 
-                txtSoLuong.Text, txtTinhTrang.Text, (int)cmbTG.SelectedValue,(int) cmbTL.SelectedValue,
+                Convert.ToInt32(txtSoLuong.Text), txtTinhTrang.Text, (int)cmbTG.SelectedValue,(int) cmbTL.SelectedValue,
                 (int)cmbNXB.SelectedValue))
             {
                 MessageBox.Show($"Thêm thành công!");
@@ -68,7 +67,7 @@ namespace QuanLyThuVien.View
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (TaiLieuSQL.Instance.UpdateA(txtId.Text, txtTenTaiLieu.Text, txtNamXuatBan.Text,
-                txtSoLuong.Text, txtTinhTrang.Text,
+                Convert.ToInt32(txtSoLuong.Text), txtTinhTrang.Text,
                 (int)cmbTG.SelectedValue, (int)cmbTL.SelectedValue,
                 (int)cmbNXB.SelectedValue))
             {
@@ -107,7 +106,25 @@ namespace QuanLyThuVien.View
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvTaiLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvTaiLieu.DataSource = TaiLieuSQL.Instance.SearchS(txtSearch.Text);
+            DataTable result = TaiLieuSQL.Instance.SearchS(txtSearch.Text);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvTaiLieu.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dgvTaiLieu.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                dgvTaiLieu.DataSource = emptyTable;
+            }
         }
 
         private void dgvTaiLieu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -125,6 +142,48 @@ namespace QuanLyThuVien.View
                 cmbTG.SelectedValue = selectedRow.Cells[5].Value;
                 cmbTL.SelectedValue = selectedRow.Cells[6].Value;
                 cmbNXB.SelectedValue = selectedRow.Cells[7].Value;
+            }
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int soLuong = Convert.ToInt32(txtSoLuong.Text);
+
+                if (soLuong < 0)
+                {
+                    MessageBox.Show("Nhập lại");
+                }
+                else
+                {
+                    MessageBox.Show("Trường này không được để trống");
+                }
+            }
+            catch (FormatException)
+            {
+                // Handle the case where the input is not a valid integer
+                MessageBox.Show("Vui lòng nhập một số nguyên hợp lệ");
+                txtSoLuong.Text = ""; // Optionally clear the TextBox or provide default value
+            }
+        }
+
+        private void txtNamXuatBan_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int nam = Convert.ToInt32(txtNamXB.Text);
+
+                if (nam < 0) 
+                {
+                    MessageBox.Show("Nhập lại");
+                }
+            }
+            catch (FormatException)
+            {
+                // Handle the case where the input is not a valid integer
+                MessageBox.Show("Vui lòng nhập một số nguyên hợp lệ");
+                txtNamXB.Text = ""; // Optionally clear the TextBox or provide default value
             }
         }
     }

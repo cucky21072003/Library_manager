@@ -17,8 +17,9 @@ namespace QuanLyThuVien.ConnectSQL
             private set => instance = value;
         }
 
-        public bool InsertA(string name, string namxb, string soluong, string tinhtrang,int tacgiaid, int theloaiid, int nxbid)
+        public bool InsertA(string name, string namxb, int soluong, string tinhtrang,int tacgiaid, int theloaiid, int nxbid)
         {
+            
             string query = $"insert into TaiLieu (TenTaiLieu,NamXuatBan,SoLuong,TinhTrang,TacGiaId,TheLoaiId,NhaXuatBanId) " +
                 $"values ('{name}','{namxb}','{soluong}','{tinhtrang}',{tacgiaid},{theloaiid},{nxbid})";
             return Connect.Instance.ExecuteNonOuery(query);
@@ -28,8 +29,9 @@ namespace QuanLyThuVien.ConnectSQL
             string query = $"DELETE FROM TaiLieu WHERE Id='{Id}'";
             return Connect.Instance.ExecuteNonOuery(query);
         }
-        public bool UpdateA(string Id, string name, string namxb, string soluong, string tinhtrang, int tacgiaid, int theloaiid, int nxbid)
+        public bool UpdateA(string Id, string name, string namxb, int soluong, string tinhtrang, int tacgiaid, int theloaiid, int nxbid)
         {
+           
             string query = $"UPDATE TaiLieu SET TenTaiLieu=N'{name}', NamXuatBan='{namxb}', SoLuong='{soluong}', TinhTrang=N'{tinhtrang}', TacGiaId='{tacgiaid}',TheLoaiId='{theloaiid}',NhaXuatBanId='{nxbid}' WHERE Id='{Id}'";
             return Connect.Instance.ExecuteNonOuery(query);
         }

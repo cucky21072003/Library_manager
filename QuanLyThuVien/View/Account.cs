@@ -87,7 +87,26 @@ namespace QuanLyThuVien.View
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAccount.DataSource = LoginSQL.Instance.searchAccount(txtSearch.Text);
+            DataTable result = LoginSQL.Instance.searchAccount(txtSearch.Text);
+
+            if (result.Rows.Count > 0)
+            {
+                dgvAccount.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable emptyTable = new DataTable();
+                foreach (DataGridViewColumn col in dgvAccount.Columns)
+                {
+                    emptyTable.Columns.Add(col.Name, col.ValueType);
+                }
+
+                emptyTable.Rows.Add(emptyTable.NewRow());
+
+                dgvAccount.DataSource = emptyTable;
+            }
+
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
